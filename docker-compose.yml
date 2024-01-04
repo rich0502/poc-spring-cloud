@@ -9,3 +9,11 @@ services:
     healthcheck:
       test: ["CMD","curl", "-f", "http://localhost:8761/actuator/health"]
       interval: 10s
+  my-ebank-config-service:
+    build: ./config-service
+    container_name: my-ebank-config-service
+    ports:
+      - "9999:9999"
+    expose:
+      - "9999"
+    depends_on: my-ebank-discovery-service
