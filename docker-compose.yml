@@ -1,0 +1,8 @@
+services:
+  my-ebank-discovery-service:
+    build: ./discovery-service
+    container_name: my-ebank-discovery-service
+    ports:
+      - "8761:8761"
+    expose:
+      - "8761"
