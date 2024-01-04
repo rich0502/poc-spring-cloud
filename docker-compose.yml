@@ -39,6 +39,10 @@ services:
     depends_on:
       my-ebank-config-service:
         condition: service_healthy
+    healthcheck:
+      test: [ "CMD","curl", "-f", "http://localhost:8081/actuator/health" ]
+      interval: 10s
+      retries: 4
   my-ebank-account-service:
     build: ./account-service
     container_name: my-ebank-account-service
@@ -50,5 +54,5 @@ services:
       - DISCOVERY_SERVICE_URL=http://my-ebank-discovery-service:8761/eureka
       - CONFIG_SERVICE_URL=http://my-ebank-config-service:9999
     depends_on:
-      my-ebank-config-service:
+      my-ebank-customer-service:
         condition: service_healthy
