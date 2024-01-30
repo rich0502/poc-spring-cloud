@@ -1,6 +1,5 @@
 package com.bk.customerservice;
 
-import com.bk.customerservice.config.GlobalConfig;
 import com.bk.customerservice.entities.Customer;
 import com.bk.customerservice.repository.CustomerRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -10,7 +9,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-@EnableConfigurationProperties(GlobalConfig.class)
+//@EnableConfigurationProperties(GlobalConfig.class)
 public class CustomerServiceApplication {
 
 	public static void main(String[] args) {
